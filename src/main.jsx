@@ -9,13 +9,13 @@ import Home from './pages/Home.jsx'
 import { AuthLayout, Login } from './component/index.js'
 
 
-import AddPost from "./pages/AddPost";
+import AddPost from "./pages/Addpost.jsx";
 import Signup from './pages/Signup.jsx';
-import EditPost from "./pages/EditPost";
+import EditPost from "./pages/Editpost.jsx";
 
-import Post from "./pages/Post";
+import Post from "./pages/Post.jsx";
 
-import AllPosts from "./pages/AllPosts";
+import AllPosts from "./pages/Allposts.jsx";
 
 const router = createBrowserRouter([
   {

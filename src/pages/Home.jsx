@@ -30,7 +30,7 @@ function Home() {
             </div>
         )
     }
-    return userData?(
+    return (
         <div className='w-full py-8'>
             <Container>
                 <div className='flex flex-wrap'>
@@ -42,11 +42,8 @@ function Home() {
                 </div>
             </Container>
         </div>
-    ):( <div className="p-2 w-full">
-    <h1 className="text-2xl font-bold hover:text-gray-500">
-        Login to read posts
-    </h1>
-</div>);
+    )
+
 }
 
 export default Home

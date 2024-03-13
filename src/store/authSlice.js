@@ -16,11 +16,12 @@ const authSlice = createSlice({
         logout: (state) => {
             state.status = false;
             state.userData = null;
-        }
+        },
+   
+      
      }
 })
-console.log(authSlice)
 
-export const {login, logout} = authSlice.actions;
+export const {login, logout ,addpost} = authSlice.actions;
 
 export default authSlice.reducer;

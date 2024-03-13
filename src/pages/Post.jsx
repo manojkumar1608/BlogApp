@@ -4,6 +4,7 @@ import appwriteService from "../appwrite/config";
 import { Button, Container } from "../component";
 import parse from "html-react-parser";
 import { useSelector } from "react-redux";
+import authService from "../appwrite/auth";
 
 export default function Post() {
     const [post, setPost] = useState(null);
@@ -11,23 +12,24 @@ export default function Post() {
     const navigate = useNavigate();
 
     const userData = useSelector((state) => state.auth.userData);
+    const isAuthor =  post && userData ? post.userId === userData.$id : false;
+    console.log(post)
+    console.log(isAuthor)
 
-    const isAuthor =()=>{
-        if(post){
-            userID = post.userId;
-        }if(userID === userData.$id){
-            return true;
-        }
-    }
+ 
+
+
 
     useEffect(() => {
         if (slug) {
             appwriteService.getPost(slug).then((post) => {
-                if (post) setPost(post);
-                else navigate("/");
+                if (post) {setPost(post);
+                }else navigate("/");
             });
         } else navigate("/");
     }, [slug, navigate]);
+
+    
 
     const deletePost = () => {
         appwriteService.deletePost(post.$id).then((status) => {
